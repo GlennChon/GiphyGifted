@@ -20,16 +20,14 @@ function randomUrl() {
   }&tag=&rating=G`;
 }
 
-export function getGifs(searchValue) {
-  fetch(searchUrl(searchValue))
-    .then(response => response.json())
-    .then(json => {
-      if (json.error) {
-        alert("Error");
-      } else {
-        return json;
-      }
-    });
+export async function getGifs(searchValue) {
+  let response = await fetch(searchUrl(searchValue));
+  let data = await response.json();
+  if (data.error) {
+    alert("Error");
+  } else {
+    return data;
+  }
 }
 
 export function getTrendingGifs() {}
