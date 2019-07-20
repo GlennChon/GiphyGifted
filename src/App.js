@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import _ from "lodash";
 import { getGifs } from "./services/giphyService";
+import GifList from "./components/gifList";
 
 class App extends Component {
   state = {
@@ -23,11 +24,11 @@ class App extends Component {
   }
 
   render() {
-    // check to see if data being returned is using default value
     if (this.state.gifs.data) {
-      return <h1>IT'S WORKING (hopefully)!!!</h1>;
+      // getting gifs is undefined error here - taking a mental break.
+      return <GifList />;
     } else {
-      return null;
+      return <h1>Ughhhhh....</h1>;
     }
   }
 }
