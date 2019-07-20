@@ -21,7 +21,15 @@ function randomUrl() {
 }
 
 export function getGifs(searchValue) {
-  return fetch(searchUrl(searchValue)).then(response => response.json());
+  fetch(searchUrl(searchValue))
+    .then(response => response.json())
+    .then(json => {
+      if (json.error) {
+        alert("Error");
+      } else {
+        return json;
+      }
+    });
 }
 
 export function getTrendingGifs() {}
