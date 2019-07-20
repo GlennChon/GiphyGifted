@@ -21,12 +21,15 @@ function randomUrl() {
 }
 
 export async function getGifs(searchValue) {
-  let response = await fetch(searchUrl(searchValue));
-  let data = await response.json();
-  if (data.error) {
-    alert("Error");
-  } else {
-    return data;
+  try {
+    let response = await fetch(searchUrl(searchValue));
+    if (!response.ok) {
+      throw response;
+    } else {
+      return response.json();
+    }
+  } catch (err) {
+    alert(err);
   }
 }
 
