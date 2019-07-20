@@ -23,7 +23,12 @@ class App extends Component {
   }
 
   render() {
-    return <div>TEST</div>;
+    // check to see if data being returned is using default value
+    if (this.state.gifs.data) {
+      return <h1>IT'S WORKING (hopefully)!!!</h1>;
+    } else {
+      return null;
+    }
   }
 }
 
