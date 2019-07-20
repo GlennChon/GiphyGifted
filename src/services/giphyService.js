@@ -19,3 +19,11 @@ function randomUrl() {
     giphy.apiKey
   }&tag=&rating=G`;
 }
+
+export function getGifs(searchValue) {
+  return fetch(searchUrl(searchValue)).then(response => response.json());
+}
+
+export function getTrendingGifs() {}
+
+export function getRandomGif() {}
