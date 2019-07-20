@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class Gif extends Component {
-    state = {  }
-    render() { 
-        return (  );
-    }
-}
- 
+const Gif = ({ gif }) => {
+  const gifImg = gif.images.fixed_height_still;
+  return (
+    <React.Fragment>
+      <img src={gifImg.url} height={gifImg.height} width={gifImg.width} />
+    </React.Fragment>
+  );
+};
+
 export default Gif;
