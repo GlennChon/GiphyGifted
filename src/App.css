@@ -20,7 +20,8 @@
   display: flex;
   width: 300px;
   height: 300px;
-  margin: auto;
+  margin: 5% 0;
+  border-radius: 5px;
   border-style: solid;
   border-color: yellow;
 }
@@ -30,11 +31,6 @@ img {
   border-radius: 5px;
   border-style: solid;
   border-color: white;
-}
-
-.center-vertical {
-}
-.center-horizontal {
 }
 
 @media (min-width: 720px) {
