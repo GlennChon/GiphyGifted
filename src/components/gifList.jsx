@@ -11,7 +11,7 @@ const GifList = ({ gifs }) => {
   ));
   return (
     <React.Fragment>
-      <div className="gif_lst_container">{gifList}</div>
+      <div className="wrapper">{gifList}</div>
     </React.Fragment>
   );
 };

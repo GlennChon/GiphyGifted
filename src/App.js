@@ -26,7 +26,11 @@ class App extends Component {
   render() {
     if (this.state.gifs.data) {
       // Passes gif data to giflist and renders
-      return <GifList gifs={this.state.gifs.data} />;
+      return (
+        <div className="App">
+          <GifList gifs={this.state.gifs.data} />
+        </div>
+      );
     } else {
       return <h1>Loading...</h1>;
     }

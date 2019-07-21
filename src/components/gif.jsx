@@ -1,16 +1,13 @@
 import React from "react";
 
-// Return react fragment of gif stills
+// Return responsive react fragment of gifs
 const Gif = ({ gif }) => {
-  const gifImg = gif.images.fixed_height_still;
+  const gifImg = gif.images.fixed_width;
   return (
     <React.Fragment>
-      <img
-        className="gif_img"
-        src={gifImg.url}
-        height={gifImg.height}
-        width={gifImg.width}
-      />
+      <div className="container-gif center-vertical">
+        <img className="" src={gifImg.url} height={gifImg.height} />
+      </div>
     </React.Fragment>
   );
 };
