@@ -19,8 +19,12 @@ class App extends Component {
 
   // Get gifs and set state
   async updateGifs(searchValue) {
-    let json = await getGifs(searchValue);
-    this.setState({ gifs: json });
+    if (searchValue.trim() !== "") {
+      let json = await getGifs(searchValue);
+      this.setState({ gifs: json });
+    } else {
+      this.updateGifs(this.state.defaultValue);
+    }
   }
 
   render() {
