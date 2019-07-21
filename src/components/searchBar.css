@@ -3,7 +3,8 @@ input {
   border-radius: 10px;
   font-size: 24px;
   margin-top: 10%;
-
+  /*starts cursor a bit further right*/
+  padding-left: 10px;
   border-style: solid;
   border-color: blue;
 }
