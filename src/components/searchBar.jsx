@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 
 class SearchBar extends Component {
-  state = {
-    searchValue: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchValue: ""
+    };
+  }
 
-  handleInputChange = searchValue => {
+  handleInputChange(searchValue) {
     this.setState({ searchValue });
     this.props.onChange(searchValue);
-  };
+  }
   render() {
     return (
       <React.Fragment>

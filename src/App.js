@@ -21,15 +21,18 @@ class App extends Component {
   async updateGifs(searchValue) {
     let json = await getGifs(searchValue);
     this.setState({ gifs: json });
-    console.log(this.state.gifs);
   }
 
   render() {
+    const updateGifs = _.debounce(searchvalue => {
+      this.updateGifs(searchvalue);
+    }, 200);
+
     if (this.state.gifs.data) {
       // Passes gif data to giflist and renders
       return (
         <div className="App">
-          <SearchBar searchValue="test" />
+          <SearchBar onChange={searchValue => updateGifs(searchValue)} />
           <GifList gifs={this.state.gifs.data} />
         </div>
       );
