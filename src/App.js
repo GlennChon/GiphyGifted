@@ -3,6 +3,7 @@ import "./App.css";
 import _ from "lodash";
 import { getGifs } from "./services/giphyService";
 import GifList from "./components/gifList";
+import SearchBar from "./components/searchBar";
 
 class App extends Component {
   state = {
@@ -28,11 +29,12 @@ class App extends Component {
       // Passes gif data to giflist and renders
       return (
         <div className="App">
+          <SearchBar searchValue="test" />
           <GifList gifs={this.state.gifs.data} />
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return null;
     }
   }
 }
