@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./searchBar.css";
 
 class SearchBar extends Component {
   constructor(props) {
@@ -17,8 +18,8 @@ class SearchBar extends Component {
       <React.Fragment>
         <div>
           <input
-            type="text"
-            placeholder="Giphy Search"
+            type="search"
+            placeholder="GIFt'ed Search"
             value={this.state.searchValue}
             onChange={e => this.handleInputChange(e.target.value)}
           />

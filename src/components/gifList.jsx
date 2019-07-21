@@ -1,5 +1,6 @@
 import React from "react";
 import Gif from "./gif";
+import "./gifList.css";
 
 // Returns react fragment list container of gif divs
 const GifList = ({ gifs }) => {

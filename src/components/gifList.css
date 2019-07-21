@@ -1,0 +1,9 @@
+.wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  border-style: solid;
+  border-color: orange;
+}
