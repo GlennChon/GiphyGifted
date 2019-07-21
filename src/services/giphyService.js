@@ -33,6 +33,28 @@ export async function getGifs(searchValue) {
   }
 }
 
-export function getTrendingGifs() {}
+export async function getTrendingGifs() {
+  try {
+    let response = await fetch(trendingUrl());
+    if (!response.ok) {
+      throw response;
+    } else {
+      return response.json();
+    }
+  } catch (err) {
+    alert(err);
+  }
+}
 
-export function getRandomGif() {}
+export async function getRandomGif() {
+  try {
+    let response = await fetch(randomUrl());
+    if (!response.ok) {
+      throw response;
+    } else {
+      return response.json();
+    }
+  } catch (err) {
+    alert(err);
+  }
+}
