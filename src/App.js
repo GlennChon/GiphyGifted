@@ -25,10 +25,10 @@ class App extends Component {
 
   render() {
     if (this.state.gifs.data) {
-      // getting gifs is undefined error here - taking a mental break.
-      return <GifList />;
+      // Passes gif data to giflist and renders
+      return <GifList gifs={this.state.gifs.data} />;
     } else {
-      return <h1>Ughhhhh....</h1>;
+      return <h1>Loading...</h1>;
     }
   }
 }
