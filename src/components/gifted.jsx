@@ -1,57 +1,80 @@
 import React, { Component } from "react";
 import _ from "lodash";
-import { getGifs } from "../services/giphyService";
+import {
+  getGifs,
+  getTrendingGifs,
+  getRandomGif
+} from "../services/giphyService";
 import GifList from "./gifList";
+import SingleGif from "./singleGif";
 import SearchBar from "./searchBar";
-import FilterButtons from "./filterButtons";
+import "./gifted.css";
+
 class Gifted extends Component {
   state = {
     gifs: {},
+    isRandom: true,
     // First real react project, appropriate default search text
-    listSize: 0,
     defaultValue: "I don't know what I'm doing"
   };
 
   // On first mount, use default search value
   componentDidMount() {
-    this.updateGifs(this.state.defaultValue);
+    this.searchGifs(this.state.defaultValue);
+  }
+  // Get a random gif
+  async randomGif() {
+    let json = await getRandomGif();
+
+    this.setState({ gifs: json, isRandom: true });
   }
 
+  // Get trending gifs
+  async trendingGifs() {
+    let json = await getTrendingGifs();
+
+    this.setState({ gifs: json, isRandom: false });
+  }
   // Get gifs and set state, if input is "" then get state.defaultValue
-  async updateGifs(searchValue) {
-    let length = 0;
+  async searchGifs(searchValue) {
     let json;
 
-    console.log(searchValue);
     if (searchValue.trim() === "") {
       json = await getGifs(this.state.defaultValue);
     } else {
       json = await getGifs(searchValue);
     }
-    if (json) {
-      length = json.data.length;
-    }
-    this.setState({ gifs: json, listSize: length });
+
+    this.setState({ gifs: json, isRandom: false });
   }
+
   render() {
     let appBody;
-    const updateGifs = _.debounce(searchvalue => {
-      this.updateGifs(searchvalue);
+    const searchGifs = _.debounce(searchvalue => {
+      this.searchGifs(searchvalue);
     }, 650);
 
-    if (this.state.listSize > 1) {
-      appBody = <GifList gifs={this.state.gifs.data} />;
-    } else if (this.state.listSize === 1) {
+    console.log(this.state.gifs);
+
+    if (!this.state.isRandom) {
       console.log(this.state.gifs.data);
-      appBody = <div>1 Gif Random Frangment Coming Soon</div>;
-      console.log("fragment needed here");
+      appBody = <GifList gifs={this.state.gifs.data} onClick />;
+    } else if (!_.isEmpty(this.state.gifs)) {
+      appBody = <SingleGif gif={this.state.gifs.data} />;
     }
 
     // Passes gif data to giflist and renders
     return (
       <div className="App">
-        <SearchBar onChange={searchValue => updateGifs(searchValue)} />
-        <FilterButtons />
+        <SearchBar onChange={searchValue => searchGifs(searchValue)} />
+        <div className="btn-wrapper">
+          <button className="left" onClick={this.trendingGifs.bind(this)}>
+            Trending
+          </button>
+          <button className="right" onClick={this.randomGif.bind(this)}>
+            Random
+          </button>
+        </div>
         {appBody}
       </div>
     );

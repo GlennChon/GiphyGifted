@@ -4,7 +4,7 @@ import "./gifList.css";
 
 // Returns react fragment list container of gif divs
 const GifList = ({ gifs }) => {
-  // Map gif objects with key since react requires that
+  // Map gif objects with keys
   const gifList = gifs.map((gif, i) => (
     <div key={i}>
       <Gif key={gif.id} gif={gif} />
