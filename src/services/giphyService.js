@@ -1,17 +1,15 @@
 import giphy from "./config";
 
-function searchUrl(searchValue) {
+function searchUrl(searchValue, offset) {
   return `${giphy.apiUrl}/${giphy.query[0]}?api_key=${
     giphy.apiKey
-  }&q=${searchValue}&limit=${giphy.limit}&offset=${
-    giphy.offset
-  }&rating=G&lang=en`;
+  }&q=${searchValue}&limit=${giphy.limit}&offset=${offset}&rating=G&lang=en`;
 }
 
-function trendingUrl() {
+function trendingUrl(offset) {
   return `${giphy.apiUrl}/${giphy.query[1]}?api_key=${giphy.apiKey}&limit=${
     giphy.limit
-  }&offset=${giphy.offset}&rating=G`;
+  }&offset=${offset}&rating=G`;
 }
 
 function randomUrl() {
@@ -20,9 +18,9 @@ function randomUrl() {
   }&tag=&rating=G`;
 }
 
-export async function getGifs(searchValue) {
+export async function getGifs(searchValue, offset) {
   try {
-    let response = await fetch(searchUrl(searchValue));
+    let response = await fetch(searchUrl(searchValue, offset));
     if (!response.ok) {
       throw response;
     } else {
@@ -33,9 +31,9 @@ export async function getGifs(searchValue) {
   }
 }
 
-export async function getTrendingGifs() {
+export async function getTrendingGifs(offset) {
   try {
-    let response = await fetch(trendingUrl());
+    let response = await fetch(trendingUrl(offset));
     if (!response.ok) {
       throw response;
     } else {
