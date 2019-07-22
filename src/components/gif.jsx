@@ -8,7 +8,7 @@ const Gif = ({ gif }) => {
   return (
     <React.Fragment>
       <div className="container-gif">
-        <img src={gifImg.url} height={gifImg.height} />
+        <img src={gifImg.url} height={gifImg.height} alt={gifImg.alt} />
       </div>
     </React.Fragment>
   );
