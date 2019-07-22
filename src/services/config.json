@@ -2,6 +2,6 @@
   "apiUrl": "https://api.giphy.com/v1/gifs",
   "apiKey": "yEPB1jxWE2H8hLDxtGti3UudgWNSjUSh",
   "query": ["search", "trending", "random"],
-  "limit": 24,
+  "limit": 25,
   "offset": 0
 }
