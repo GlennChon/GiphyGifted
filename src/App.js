@@ -5,9 +5,6 @@ import Gifted from "./components/gifted";
 class App extends Component {
   state = {};
 
-  // On first mount, use default search value
-  componentDidMount() {}
-
   render() {
     return (
       <React.Fragment>
