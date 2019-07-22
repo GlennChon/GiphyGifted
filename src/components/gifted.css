@@ -6,6 +6,11 @@
   margin: 5px 0;
 }
 
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 button {
   background-color: #9ae5d3;
   border: 1px solid #43645c;
@@ -30,6 +35,10 @@ button:hover {
 .right {
   border-radius: 0 5px 5px 0;
   margin-left: 1px;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 368px) {
