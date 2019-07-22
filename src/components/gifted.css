@@ -1,0 +1,41 @@
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-flow: row wrap;
+  margin: 5px 0;
+}
+
+button {
+  background-color: #9ae5d3;
+  border: 1px solid #43645c;
+  color: #424242;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #63998d;
+  color: #383838;
+}
+
+.left {
+  border-radius: 5px 0 0 5px;
+  margin-right: 1px;
+}
+
+.right {
+  border-radius: 0 5px 5px 0;
+  margin-left: 1px;
+}
+
+@media (max-width: 368px) {
+  .left,
+  .right {
+    border-radius: 5px;
+    margin: 0;
+  }
+}
