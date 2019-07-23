@@ -43,13 +43,21 @@ class Gifted extends Component {
   searchGifs = async searchValue => {
     // if the searchValue is empty or the same as the defaultValue, use defaultValue,
     // otherwise use tew terms
-    console.log(searchValue);
-    const value =
-      searchValue === this.state.lastSearchValue
-        ? this.state.lastSearchValue
-        : searchValue;
-    let json = await getGifs(value, this.state.offset);
-    this.setState({ gifs: json, lastSearchValue: value, type: "search" });
+    let value = searchValue;
+    let offset = 0;
+    if (searchValue === "") {
+      value = this.state.defaultSearchValue;
+    } else if (searchValue === this.state.lastSearchValue) {
+      offset = this.state.offset;
+      value = this.state.lastSearchValue;
+    }
+    let json = await getGifs(value, offset);
+    this.setState({
+      gifs: json,
+      lastSearchValue: value,
+      type: "search",
+      offset
+    });
   };
 
   //--- Pagination ---//
