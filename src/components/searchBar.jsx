@@ -5,25 +5,35 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: ""
+      searchValue: "I don't know what I'm doing"
     };
   }
 
-  handleInputChange(searchValue) {
-    this.setState({ searchValue });
-    this.props.onChange(searchValue);
-  }
+  handleChange = e => {
+    this.setState({ searchValue: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.handleSearchClick(this.state.searchValue);
+  };
+
   render() {
     return (
       <React.Fragment>
-        <div>
-          <input
-            type="search"
-            placeholder="GIFt'ed Search"
-            value={this.state.searchValue}
-            onChange={e => this.handleInputChange(e.target.value)}
-          />
-        </div>
+        <input
+          type="search"
+          placeholder="GIFt'ed Search"
+          onChange={this.handleChange}
+          value={this.state.searchValue}
+        />
+        <button
+          type="submit"
+          className="search-btn"
+          onClick={this.handleSubmit}
+        >
+          Search
+        </button>
       </React.Fragment>
     );
   }

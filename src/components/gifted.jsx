@@ -15,9 +15,8 @@ class Gifted extends Component {
   state = {
     gifs: {},
     type: null,
-    // First real react project, appropriate default search text
-    defaultValue: "I don't know what I'm doing",
     lastSearchValue: "",
+    playBool: true,
     offset: 0
   };
 
@@ -42,43 +41,43 @@ class Gifted extends Component {
     this.setState({ gifs: json, type: "trending", offset: offset });
   };
 
-  // Get gifs and set state, if input is "" then get state.defaultValue
+  // Get searched gifs and set state, if input is "" then get state.defaultValue
   searchGifs = async searchValue => {
     // if the searchValue is empty or the same as the defaultValue, use defaultValue,
     // otherwise use tew terms
-    let value =
-      searchValue === "" || searchValue === this.state.defaultValue
-        ? this.state.defaultValue
-        : this.state.lastSearchValue;
-
+    console.log(searchValue);
+    const value =
+      searchValue === this.state.lastSearchValue
+        ? this.state.lastSearchValue
+        : searchValue;
     let json = await getGifs(value, this.state.offset);
     this.setState({ gifs: json, lastSearchValue: value, type: "search" });
   };
 
   // Pagination
-  typeSwitch = async () => {
+  typeSwitch() {
     switch (this.state.type) {
       case "search":
         console.log(this.state.type + ":", this.state.offset);
         console.log(this.state.lastSearchValue);
-        await this.searchGifs();
+        this.searchGifs();
         break;
       case "trending":
         console.log(this.state.type + ":", this.state.offset);
-        await this.trendingGifs();
+        this.trendingGifs();
         break;
       default:
         return null;
     }
-  };
+  }
   pageUp = async () => {
     await this.handleIncrement();
-    await this.typeSwitch();
+    this.typeSwitch();
   };
 
   pageDown = async () => {
     await this.handleDecrement();
-    await this.typeSwitch();
+    this.typeSwitch();
   };
 
   handleIncrement = () => {
@@ -102,15 +101,14 @@ class Gifted extends Component {
     let paginationClass = "page-btn";
     paginationClass += this.state.type === "random" ? " hide" : "";
 
-    //TODO: Need to take a look at thishttps://stackoverflow.com/questions/23123138/perform-debounce-in-react-js
-    const searchGifs = _.debounce(searchvalue => {
-      this.searchGifs(searchvalue, this.state.offset);
-    }, 650);
-
+    //TODO: Need to take a look at this
+    // https://stackoverflow.com/questions/23123138/perform-debounce-in-react-js
     if (_.isEmpty(this.state.gifs)) {
       return null;
     } else if (this.state.type !== "random") {
-      appBody = <GifList gifs={this.state.gifs.data} />;
+      appBody = (
+        <GifList gifs={this.state.gifs.data} play={this.state.playBool} />
+      );
     } else {
       appBody = <SingleGif gif={this.state.gifs.data} />;
     }
@@ -118,12 +116,7 @@ class Gifted extends Component {
     // Passes gif data to giflist and renders
     return (
       <div className="App">
-        <SearchBar
-          onChange={searchValue => {
-            this.setState({ lastSearchValue: searchValue, offset: 0 });
-            searchGifs(searchValue, this.state.offset);
-          }}
-        />
+        <SearchBar handleSearchClick={this.searchGifs} />
         <div className="btn-wrapper">
           <button className="left" onClick={() => this.trendingGifs(0)}>
             Trending
