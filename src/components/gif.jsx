@@ -1,16 +1,26 @@
 import React from "react";
+import GifPlayer from "react-gif-player";
 import "./gif.css";
 
 // Return responsive react fragment of gifs
-const Gif = ({ gif }) => {
-  const gifImg = gif.images.fixed_width_downsampled;
+const Gif = ({ gif, type }) => {
+  const gifImgObj = gif.images;
+  const gifImgType =
+    type === "fixed-height"
+      ? gifImgObj.fixed_height_downsampled
+      : gifImgObj.fixed_width_downsampled;
+  const stillImg =
+    type === "fixed-height"
+      ? gifImgObj.fixed_height_still
+      : gifImgObj.fixed_width_still;
 
   return (
     <React.Fragment>
       <div className="container-gif">
-        <img src={gifImg.url} height={gifImg.height} alt={gifImg.alt} />
+        <GifPlayer gif={gifImgType.url} still={stillImg.url} autoplay={true} />
       </div>
     </React.Fragment>
+    //        <img src={gifImg.url} height={gifImg.height} alt={gifImg.alt} />
   );
 };
 
