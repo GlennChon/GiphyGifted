@@ -13,11 +13,7 @@ class GifList extends Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <div className="wrapper">{this.mapGifList(this.props.gifs)}</div>
-      </React.Fragment>
-    );
+    return <React.Fragment>{this.mapGifList(this.props.gifs)}</React.Fragment>;
   }
 }
 
