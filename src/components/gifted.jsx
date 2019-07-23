@@ -15,6 +15,7 @@ class Gifted extends Component {
   state = {
     gifs: {},
     type: null,
+    defaultSearchValue: "I don't know what I'm doing",
     lastSearchValue: "",
     playBool: true,
     offset: 0
@@ -22,7 +23,7 @@ class Gifted extends Component {
 
   // On first mount, use default search value
   componentDidMount() {
-    this.searchGifs(this.state.defaultValue);
+    this.searchGifs(this.state.defaultSearchValue);
   }
 
   // Get a random gif
@@ -55,21 +56,21 @@ class Gifted extends Component {
   };
 
   // Pagination
+
+  // Switch between trending and search pagination
   typeSwitch() {
     switch (this.state.type) {
       case "search":
-        console.log(this.state.type + ":", this.state.offset);
-        console.log(this.state.lastSearchValue);
-        this.searchGifs();
+        this.searchGifs(this.state.lastSearchValue);
         break;
       case "trending":
-        console.log(this.state.type + ":", this.state.offset);
         this.trendingGifs();
         break;
       default:
         return null;
     }
   }
+
   pageUp = async () => {
     await this.handleIncrement();
     this.typeSwitch();
@@ -80,12 +81,14 @@ class Gifted extends Component {
     this.typeSwitch();
   };
 
+  // Handles offset increments for pagination
   handleIncrement = () => {
     this.setState({
       offset: this.state.offset + Giphy.limit
     });
   };
 
+  // Handles offset decrements for pagination
   handleDecrement = () => {
     if (this.state.offset !== 0) {
       this.setState({
@@ -116,7 +119,10 @@ class Gifted extends Component {
     // Passes gif data to giflist and renders
     return (
       <div className="App">
-        <SearchBar handleSearchClick={this.searchGifs} />
+        <SearchBar
+          handleSearchClick={this.searchGifs}
+          onFormSubmit={this.searchGifs}
+        />
         <div className="btn-wrapper">
           <button className="left" onClick={() => this.trendingGifs(0)}>
             Trending

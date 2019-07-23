@@ -5,7 +5,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: "I don't know what I'm doing"
+      searchValue: ""
     };
   }
 
@@ -21,19 +21,21 @@ class SearchBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <input
-          type="search"
-          placeholder="GIFt'ed Search"
-          onChange={this.handleChange}
-          value={this.state.searchValue}
-        />
-        <button
-          type="submit"
-          className="search-btn"
-          onClick={this.handleSubmit}
-        >
-          Search
-        </button>
+        <form className="" onFormSubmit={this.handleSubmit}>
+          <input
+            type="search"
+            placeholder="GIFt'ed Search"
+            onChange={this.handleChange}
+            value={this.state.searchValue}
+          />
+          <button
+            type="submit"
+            className="search-btn"
+            onClick={this.handleSubmit}
+          >
+            Search
+          </button>
+        </form>
       </React.Fragment>
     );
   }
