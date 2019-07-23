@@ -52,8 +52,7 @@ class Gifted extends Component {
         : this.state.lastSearchValue;
 
     let json = await getGifs(value, this.state.offset);
-
-    this.setState({ gifs: json, type: "search" });
+    this.setState({ gifs: json, lastSearchValue: value, type: "search" });
   };
 
   // Pagination
@@ -103,6 +102,7 @@ class Gifted extends Component {
     let paginationClass = "page-btn";
     paginationClass += this.state.type === "random" ? " hide" : "";
 
+    //TODO: Need to take a look at thishttps://stackoverflow.com/questions/23123138/perform-debounce-in-react-js
     const searchGifs = _.debounce(searchvalue => {
       this.searchGifs(searchvalue, this.state.offset);
     }, 650);
