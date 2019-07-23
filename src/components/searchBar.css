@@ -1,10 +1,33 @@
 input {
-  width: 100%;
-  border-radius: 10px;
+  width: 75%;
+  border-radius: 10px 0px 0px 10px;
   font-size: 24px;
-  margin-top: 10%;
   /*starts cursor a bit further right*/
   padding-left: 10px;
-  border-style: solid;
-  border-color: blue;
+}
+
+.search-wrapper {
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 5px;
+}
+
+.search-btn {
+  text-align: center;
+  padding: 0;
+  width: 25%;
+  margin-left: 5px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+@media (max-width: 368px) {
+  input {
+    font-size: 20px;
+    width: 70%;
+  }
+  .search-btn {
+    width: 30%;
+  }
 }

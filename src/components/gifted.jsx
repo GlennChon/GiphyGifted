@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import classNames from "classnames";
 import {
   getGifs,
   getTrendingGifs,
@@ -17,7 +18,6 @@ class Gifted extends Component {
     type: null,
     defaultSearchValue: "I don't know what I'm doing",
     lastSearchValue: "",
-    playBool: true,
     offset: 0
   };
 
@@ -26,23 +26,21 @@ class Gifted extends Component {
     this.searchGifs(this.state.defaultSearchValue);
   }
 
-  // Get a random gif
+  //--- Get a random gif ---//
   randomGif = async () => {
     let json = await getRandomGif();
-
     this.setState({ gifs: json, type: "random", offset: 0 });
   };
 
-  // Get trending gifs
+  //--- Get trending gifs ---//
   trendingGifs = async offsetValue => {
     // Reset pagination offset to 0 if 0 passed in, otherwise use state.offset value
     let offset = offsetValue === 0 ? offsetValue : this.state.offset;
     let json = await getTrendingGifs(offset);
-
     this.setState({ gifs: json, type: "trending", offset: offset });
   };
 
-  // Get searched gifs and set state, if input is "" then get state.defaultValue
+  //--- Get searched gifs ---//
   searchGifs = async searchValue => {
     // if the searchValue is empty or the same as the defaultValue, use defaultValue,
     // otherwise use tew terms
@@ -55,8 +53,7 @@ class Gifted extends Component {
     this.setState({ gifs: json, lastSearchValue: value, type: "search" });
   };
 
-  // Pagination
-
+  //--- Pagination ---//
   // Switch between trending and search pagination
   typeSwitch() {
     switch (this.state.type) {
@@ -97,25 +94,36 @@ class Gifted extends Component {
     }
   };
 
-  // Render
-  render() {
-    let appBody;
+  // Hides pagination buttons on randomGif
+  hidePagination() {
     //dynamic hide of pagination buttons
     let paginationClass = "page-btn";
     paginationClass += this.state.type === "random" ? " hide" : "";
+    return paginationClass;
+  }
+  addLeftClassName = () => {
+    const base = this.hidePagination();
+    return base + " left";
+  };
 
-    //TODO: Need to take a look at this
-    // https://stackoverflow.com/questions/23123138/perform-debounce-in-react-js
+  addRightClassName = () => {
+    const base = this.hidePagination();
+    return base + " right";
+  };
+
+  //--- Determines App Body ---//
+  getAppBody = () => {
     if (_.isEmpty(this.state.gifs)) {
       return null;
     } else if (this.state.type !== "random") {
-      appBody = (
-        <GifList gifs={this.state.gifs.data} play={this.state.playBool} />
-      );
+      return <GifList gifs={this.state.gifs.data} play={this.state.playBool} />;
     } else {
-      appBody = <SingleGif gif={this.state.gifs.data} />;
+      return <SingleGif gif={this.state.gifs.data} />;
     }
+  };
 
+  // Render
+  render() {
     // Passes gif data to giflist and renders
     return (
       <div className="App">
@@ -124,19 +132,25 @@ class Gifted extends Component {
           onFormSubmit={this.searchGifs}
         />
         <div className="btn-wrapper">
-          <button className="left" onClick={() => this.trendingGifs(0)}>
-            Trending
-          </button>
-          <button className="right" onClick={this.randomGif}>
-            Random
-          </button>
-        </div>
-        <div className="content-wrapper">
-          <button className={paginationClass} onClick={this.pageDown}>
+          <button className={this.addLeftClassName()} onClick={this.pageDown}>
             &lt;
           </button>
-          {appBody}
-          <button className={paginationClass} onClick={this.pageUp}>
+          <button className="btn-middle" onClick={() => this.trendingGifs(0)}>
+            Trending
+          </button>
+          <button className="btn-middle" onClick={this.randomGif}>
+            Random
+          </button>
+          <button className={this.addRightClassName()} onClick={this.pageUp}>
+            &gt;
+          </button>
+        </div>
+        <div className="wrapper">{this.getAppBody()}</div>
+        <div className="btn-wrapper">
+          <button className={this.addLeftClassName()} onClick={this.pageDown}>
+            &lt;
+          </button>
+          <button className={this.addRightClassName()} onClick={this.pageUp}>
             &gt;
           </button>
         </div>

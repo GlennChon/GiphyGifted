@@ -21,7 +21,7 @@ class SearchBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="" onFormSubmit={this.handleSubmit}>
+        <form className="search-wrapper" onFormSubmit={this.handleSubmit}>
           <input
             type="search"
             placeholder="GIFt'ed Search"
