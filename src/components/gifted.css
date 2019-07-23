@@ -12,29 +12,26 @@
 }
 
 button {
-  background-color: #9ae5d3;
-  border: 1px solid #43645c;
-  color: #424242;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  height: 34px;
   font-size: 18px;
 }
 
-button:hover {
-  background-color: #63998d;
-  color: #383838;
+.btn-middle {
+  margin-left: 2.5px;
+  margin-right: 2.5px;
 }
 
 .left {
-  border-radius: 5px 0 0 5px;
-  margin-right: 1px;
+  border-radius: 10px 0 0 10px;
+  margin-right: 2.5px;
 }
 
 .right {
-  border-radius: 0 5px 5px 0;
-  margin-left: 1px;
+  border-radius: 0 10px 10px 0;
+  margin-left: 2.5px;
 }
 
 .hide {
@@ -42,9 +39,12 @@ button:hover {
 }
 
 @media (max-width: 368px) {
+  button {
+    font-size: 16px;
+    height: 30px;
+  }
   .left,
   .right {
-    border-radius: 5px;
     margin: 0;
   }
 }

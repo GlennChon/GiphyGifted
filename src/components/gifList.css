@@ -4,6 +4,4 @@
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  border-style: solid;
-  border-color: orange;
 }
