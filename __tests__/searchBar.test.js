@@ -1,5 +1,9 @@
 import React from "react";
+import SearchBar from "../src/components/searchBar";
 
-it("<SearchBar/> - Expects", () => {
-  expect(true).toBeTruthy();
+describe("<SearchBar/>", () => {
+  test("testing component snapshot", () => {
+    const wrapper = shallow(<SearchBar />);
+    expect(wrapper.exists()).toBe(true);
+  });
 });

@@ -1,14 +1,12 @@
 import React from "react";
-import Gif from "./gif.css";
+import Gif from "./gif";
 
-// Return responsive react fragment of gifs
+// Return responsive react fragment of gif
 const SingleGif = ({ gif }) => {
   return (
     <React.Fragment>
       <Gif gif={gif} type="fixed-height" />
     </React.Fragment>
-
-    //add share link
   );
 };
 
