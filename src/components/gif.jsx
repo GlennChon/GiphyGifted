@@ -1,6 +1,6 @@
 import React from "react";
 import GifPlayer from "react-gif-player";
-import "./gif.css";
+import "./css/gif";
 
 // Return responsive react fragment of gifs
 const Gif = ({ gif, type }) => {

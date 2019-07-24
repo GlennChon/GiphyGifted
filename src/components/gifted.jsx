@@ -9,7 +9,7 @@ import GifList from "./gifList";
 import SingleGif from "./singleGif";
 import SearchBar from "./searchBar";
 import Giphy from "../services/config";
-import "./gifted.css";
+import "./css/gifted";
 
 class Gifted extends Component {
   state = {

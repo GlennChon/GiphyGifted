@@ -1,14 +1,15 @@
 {
   "name": "giphy-search",
+  "jest": {
+    "verbose": true
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "jest": "^24.7.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-gif-player": "^0.4.2",
-    "react-scripts": "3.0.1",
-    "react-test-renderer": "^16.8.6"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,5 +32,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "jest": "^24.8.0",
+    "react-test-renderer": "^16.8.6"
+  }
 }
