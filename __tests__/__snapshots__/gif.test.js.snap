@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Gif/> testing component snapshot 1`] = `
+<Fragment>
+  <div
+    className="container-gif"
+  >
+    <GifPlayerContainer
+      autoplay={true}
+      gif="fhdUrl"
+      still="fhsUrl"
+    />
+  </div>
+</Fragment>
+`;

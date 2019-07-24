@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GifList/> testing component snapshot 1`] = `
+<Fragment>
+  <div
+    key="0"
+  >
+    <Gif
+      gif={
+        Object {
+          "images": Object {
+            "fixed_height_downsampled": Object {
+              "url": "fhdUrl",
+            },
+            "fixed_height_still": Object {
+              "url": "fhsUrl",
+            },
+            "fixed_width_downsampled": Object {
+              "url": "fwdUrl",
+            },
+            "fixed_width_still": Object {
+              "url": "fwsURL",
+            },
+          },
+        }
+      }
+      type="fixed-width"
+    />
+  </div>
+  <div
+    key="1"
+  >
+    <Gif
+      gif={
+        Object {
+          "images": Object {
+            "fixed_height_downsampled": Object {
+              "url": "fhdUrl",
+            },
+            "fixed_height_still": Object {
+              "url": "fhsUrl",
+            },
+            "fixed_width_downsampled": Object {
+              "url": "fwdUrl",
+            },
+            "fixed_width_still": Object {
+              "url": "fwsURL",
+            },
+          },
+        }
+      }
+      type="fixed-width"
+    />
+  </div>
+  <div
+    key="2"
+  >
+    <Gif
+      gif={
+        Object {
+          "images": Object {
+            "fixed_height_downsampled": Object {
+              "url": "fhdUrl",
+            },
+            "fixed_height_still": Object {
+              "url": "fhsUrl",
+            },
+            "fixed_width_downsampled": Object {
+              "url": "fwdUrl",
+            },
+            "fixed_width_still": Object {
+              "url": "fwsURL",
+            },
+          },
+        }
+      }
+      type="fixed-width"
+    />
+  </div>
+</Fragment>
+`;
