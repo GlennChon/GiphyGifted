@@ -12,7 +12,7 @@ const gif = {
 
 describe("<singleGif/>", () => {
   test("testing component snapshot", () => {
-    const wrapper = shallow(<singleGif gif={gif} />);
+    const wrapper = shallow(<SingleGif gif={gif} />);
     expect(wrapper).toMatchSnapshot();
   });
 });
