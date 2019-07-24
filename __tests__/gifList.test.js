@@ -1,36 +1,15 @@
 import React from "react";
 import GifList from "../src/components/gifList";
+import { gifArrayObj } from "../__mocks__/gifArrayObj";
 
 describe("<GifList/>", () => {
-  test("testing component snapshot", () => {
-    const wrapper = shallow(<GifList gifs={gifs} />);
+  it("testing component snapshot", () => {
+    const wrapper = shallow(<GifList gifs={gifArrayObj} />);
     expect(wrapper).toMatchSnapshot();
   });
-});
 
-const gifs = [
-  {
-    images: {
-      fixed_height_downsampled: { url: "fhdUrl" },
-      fixed_width_downsampled: { url: "fwdUrl" },
-      fixed_height_still: { url: "fhsUrl" },
-      fixed_width_still: { url: "fwsURL" }
-    }
-  },
-  {
-    images: {
-      fixed_height_downsampled: { url: "fhdUrl" },
-      fixed_width_downsampled: { url: "fwdUrl" },
-      fixed_height_still: { url: "fhsUrl" },
-      fixed_width_still: { url: "fwsURL" }
-    }
-  },
-  {
-    images: {
-      fixed_height_downsampled: { url: "fhdUrl" },
-      fixed_width_downsampled: { url: "fwdUrl" },
-      fixed_height_still: { url: "fhsUrl" },
-      fixed_width_still: { url: "fwsURL" }
-    }
-  }
-];
+  it("testing component render", () => {
+    const wrapper = shallow(<GifList />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});

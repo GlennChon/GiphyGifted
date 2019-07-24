@@ -1,19 +1,16 @@
 import React from "react";
 import Gif from "../src/components/gif";
-
-const gif = {
-  images: {
-    fixed_height_downsampled: { url: "fhdUrl" },
-    fixed_width_downsampled: { url: "fwdUrl" },
-    fixed_height_still: { url: "fhsUrl" },
-    fixed_width_still: { url: "fwsURL" }
-  }
-};
+import { gifArrayObj } from "../__mocks__/gifArrayObj";
 
 describe("<Gif/>", () => {
-  test("testing component snapshot", () => {
+  it("testing component snapshot", () => {
     const type = "fixed-height";
-    const wrapper = shallow(<Gif gif={gif} type={type} />);
+    const wrapper = shallow(<Gif gif={gifArrayObj[0]} type={type} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("testing component render", () => {
+    const wrapper = shallow(<Gif />);
+    expect(wrapper.exists()).toBe(true);
   });
 });

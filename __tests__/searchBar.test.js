@@ -2,7 +2,7 @@ import React from "react";
 import SearchBar from "../src/components/searchBar";
 
 describe("<SearchBar/>", () => {
-  test("testing component snapshot", () => {
+  it("testing component render", () => {
     const wrapper = shallow(<SearchBar />);
     expect(wrapper.exists()).toBe(true);
   });

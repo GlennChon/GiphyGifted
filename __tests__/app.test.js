@@ -1,5 +1,6 @@
 import React from "react";
 
-it("<GifList /> - Expects", () => {
-  expect(true).toBeTruthy();
+it("testing component render", () => {
+  const wrapper = shallow(<Gifted />);
+  expect(wrapper.exists()).toBe(true);
 });
