@@ -3,8 +3,6 @@ import "./App.css";
 import Gifted from "./components/gifted";
 
 class App extends Component {
-  state = {};
-
   render() {
     return (
       <React.Fragment>

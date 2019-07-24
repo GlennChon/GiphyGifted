@@ -1,18 +1,18 @@
 import giphy from "./config";
 
-function searchUrl(searchValue, offset) {
+export function searchUrl(searchValue, offset) {
   return `${giphy.apiUrl}/${giphy.query[0]}?api_key=${
     giphy.apiKey
   }&q=${searchValue}&limit=${giphy.limit}&offset=${offset}&rating=G&lang=en`;
 }
 
-function trendingUrl(offset) {
+export function trendingUrl(offset) {
   return `${giphy.apiUrl}/${giphy.query[1]}?api_key=${giphy.apiKey}&limit=${
     giphy.limit
   }&offset=${offset}&rating=G`;
 }
 
-function randomUrl() {
+export function randomUrl() {
   return `${giphy.apiUrl}/${giphy.query[2]}?api_key=${
     giphy.apiKey
   }&tag=&rating=G`;
