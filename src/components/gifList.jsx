@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Gif from "./gif";
-import "./css/gifList";
+import "./css/gifList.css";
 
 // Returns react fragment list container of gif divs
 class GifList extends Component {

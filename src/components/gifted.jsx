@@ -9,7 +9,7 @@ import GifList from "./gifList";
 import SingleGif from "./singleGif";
 import SearchBar from "./searchBar";
 import Giphy from "../services/config";
-import "./css/gifted";
+import "./css/gifted.css";
 
 class Gifted extends Component {
   state = {
@@ -123,7 +123,7 @@ class Gifted extends Component {
     if (_.isEmpty(this.state.gifs)) {
       return null;
     } else if (this.state.type !== "random") {
-      return <GifList gifs={this.state.gifs.data} play={this.state.playBool} />;
+      return <GifList gifs={this.state.gifs.data} />;
     } else {
       return <SingleGif gif={this.state.gifs.data} />;
     }

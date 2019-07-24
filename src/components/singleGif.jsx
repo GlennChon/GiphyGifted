@@ -1,5 +1,5 @@
 import React from "react";
-import Gif from "./gif";
+import Gif from "./gif.css";
 
 // Return responsive react fragment of gifs
 const SingleGif = ({ gif }) => {

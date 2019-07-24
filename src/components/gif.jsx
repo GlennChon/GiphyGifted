@@ -1,6 +1,6 @@
 import React from "react";
 import GifPlayer from "react-gif-player";
-import "./css/gif";
+import "./css/gif.css";
 
 // Return responsive react fragment of gifs
 const Gif = ({ gif, type }) => {
@@ -20,7 +20,6 @@ const Gif = ({ gif, type }) => {
         <GifPlayer gif={gifImgType.url} still={stillImg.url} autoplay={true} />
       </div>
     </React.Fragment>
-    //        <img src={gifImg.url} height={gifImg.height} alt={gifImg.alt} />
   );
 };
 
