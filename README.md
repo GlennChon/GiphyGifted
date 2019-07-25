@@ -6,6 +6,8 @@ Search gifs using the Giphy API endpoints.<br>
 Users can choose to search between their choice of search terms,
 see the latest trending gifs, or find a gif at random.<br><br>
 
+Base App created with create-react-app
+
 ##--------------------------------------------------
 
 # Basic Available Scripts & Setup
@@ -21,8 +23,6 @@ installs node modules if needed<br>
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-
 ### `npm test`
 
 Launches the test runner using Jest framework.<br>
@@ -37,7 +37,16 @@ the snapshots are not available or need to be updated.
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the
 best performance.
-`
+
+### `npm install serve`
+
+Installs static server, add -g flag for global install.
+
+### `serve -s build`
+
+Serves app with a static server.
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser. Or check serve response to view the address set by serve.
+
 ##--------------------------------------------------
 
 ## Framework
