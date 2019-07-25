@@ -34,7 +34,7 @@ img {
   padding: 14px 10px;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  transform: translate(-50%, -50%) scale(1);
   transition: transform 0.4s, opacity 0.4s;
 }
 .gif_player .play_button:hover {
