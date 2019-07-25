@@ -5,7 +5,7 @@ import Gif from "./gif";
 const SingleGif = ({ gif }) => {
   return (
     <React.Fragment>
-      <Gif gif={gif} type="fixed-height" />
+      <Gif gif={gif} type="fixed-height" isAutoPlay={true} />
     </React.Fragment>
   );
 };

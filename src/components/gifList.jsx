@@ -7,7 +7,7 @@ class GifList extends Component {
   mapGifList = () => {
     return this.props.gifs.map((gif, i) => (
       <div key={i}>
-        <Gif key={gif.id} gif={gif} type="fixed-width" />
+        <Gif key={gif.id} gif={gif} type="fixed-width" isAutoPlay={false} />
       </div>
     ));
   };
