@@ -1,4 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GIFt'ed - GiphySearch
+
+Search gifs using the Giphy API endpoints.
+Users can choose to search between their choice of search terms, see the latest trending gifs, or find a gif at random.
+
+## Framework
+
+App: React.js
+Testing: Jest
+
+##Features
+
+Search:
+Trending:
+Random:
+Play/Pause
+
+## Ideas for the future
+
+1. Overview of React components created and why you design them in such a way.
+
+2. Any extra works that you made and why it is important.
+
+3. Setup instructions, automated deployment of the program and dependencies/tools to
+   development and test environment is a plus
+
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

@@ -10,6 +10,7 @@ import SingleGif from "./components/singleGif";
 import SearchBar from "./components/searchBar";
 import Giphy from "./services/config";
 import "./css/App.css";
+import logo from "./gift.png";
 
 class App extends Component {
   state = {
@@ -134,6 +135,10 @@ class App extends Component {
     // Passes gif data to giflist and renders
     return (
       <div className="App">
+        <div className="App-logo-wrapper">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-logo-txt">GIFt'ed</h1>
+        </div>
         <SearchBar
           handleSearchClick={this.searchGifs}
           onFormSubmit={this.searchGifs}
