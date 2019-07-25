@@ -1,5 +1,7 @@
 import giphy from "./config";
 
+// API key should technically be in an environment variable but for the sake of simplicity, it is kept in the config.js file imported above
+
 export function searchUrl(searchValue, offset) {
   return `${giphy.apiUrl}/${giphy.query[0]}?api_key=${
     giphy.apiKey
