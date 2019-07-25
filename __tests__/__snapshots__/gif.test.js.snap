@@ -6,7 +6,6 @@ exports[`<Gif/> testing component snapshot 1`] = `
     className="container-gif"
   >
     <GifPlayerContainer
-      autoplay={true}
       gif="fhdUrl"
       still="fhsUrl"
     />

@@ -8,9 +8,4 @@ describe("<Gif/>", () => {
     const wrapper = shallow(<Gif gif={gifArrayObj[0]} type={type} />);
     expect(wrapper).toMatchSnapshot();
   });
-
-  it("testing component render", () => {
-    const wrapper = shallow(<Gif />);
-    expect(wrapper.exists()).toBe(true);
-  });
 });

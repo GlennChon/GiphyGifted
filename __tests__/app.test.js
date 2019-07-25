@@ -1,6 +1,13 @@
 import React from "react";
+import App from "../src/App.js";
 
-it("testing component render", () => {
-  const wrapper = shallow(<Gifted />);
-  expect(wrapper.exists()).toBe(true);
+describe("<App/>", () => {
+  it("testing component render", () => {
+    const jsdomAlert = window.alert;
+    window.alert = () => {};
+    const wrapper = shallow(<App />);
+    expect(wrapper.exists()).toBe(true);
+
+    window.alert = jsdomAlert;
+  });
 });

@@ -24,6 +24,7 @@ exports[`<GifList/> testing component snapshot 1`] = `
           },
         }
       }
+      isAutoPlay={false}
       type="fixed-width"
     />
   </div>
@@ -49,6 +50,7 @@ exports[`<GifList/> testing component snapshot 1`] = `
           },
         }
       }
+      isAutoPlay={false}
       type="fixed-width"
     />
   </div>
@@ -74,6 +76,7 @@ exports[`<GifList/> testing component snapshot 1`] = `
           },
         }
       }
+      isAutoPlay={false}
       type="fixed-width"
     />
   </div>

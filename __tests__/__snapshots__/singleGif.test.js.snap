@@ -21,32 +21,7 @@ exports[`<SingleGif/> testing component snapshot 1`] = `
         },
       }
     }
-    type="fixed-height"
-  />
-</Fragment>
-`;
-
-exports[`<singleGif/> testing component snapshot 1`] = `
-<Fragment>
-  <Gif
-    gif={
-      Object {
-        "images": Object {
-          "fixed_height_downsampled": Object {
-            "url": "fhdUrl",
-          },
-          "fixed_height_still": Object {
-            "url": "fhsUrl",
-          },
-          "fixed_width_downsampled": Object {
-            "url": "fwdUrl",
-          },
-          "fixed_width_still": Object {
-            "url": "fwsURL",
-          },
-        },
-      }
-    }
+    isAutoPlay={true}
     type="fixed-height"
   />
 </Fragment>

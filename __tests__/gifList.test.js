@@ -7,9 +7,4 @@ describe("<GifList/>", () => {
     const wrapper = shallow(<GifList gifs={gifArrayObj} />);
     expect(wrapper).toMatchSnapshot();
   });
-
-  it("testing component render", () => {
-    const wrapper = shallow(<GifList />);
-    expect(wrapper.exists()).toBe(true);
-  });
 });
