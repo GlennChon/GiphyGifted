@@ -35,4 +35,6 @@ describe("GiphyService", () => {
       "https://api.giphy.com/v1/gifs/random?api_key=yEPB1jxWE2H8hLDxtGti3UudgWNSjUSh&tag=&rating=G";
     expect(randomUrl()).toBe(result);
   });
+
+  // mock data and async call?
 });
