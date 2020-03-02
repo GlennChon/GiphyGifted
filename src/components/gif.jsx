@@ -14,14 +14,22 @@ const Gif = ({ gif, type, isAutoPlay }) => {
       ? gifImgObj.fixed_height_still
       : gifImgObj.fixed_width_still;
 
+  const styles = {
+    height: `${gif.images.fixed_width_still.height}px`,
+    width: `${gif.images.fixed_width_still.width}px`,
+    background: "red"
+  };
+
   return (
     <React.Fragment>
       <div className="container-gif">
-        <GifPlayer
-          gif={gifImgType.url}
-          still={stillImg.url}
-          autoplay={isAutoPlay}
-        />
+        <div style={styles}>
+          <GifPlayer
+            gif={gifImgType.url}
+            still={stillImg.url}
+            autoplay={isAutoPlay}
+          />
+        </div>
       </div>
     </React.Fragment>
   );
